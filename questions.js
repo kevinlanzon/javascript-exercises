@@ -1,114 +1,166 @@
-var selectElementsStartingWithA = function(array) {
-  return 'Write your method here';
-}
+"use strict";
 
 var selectElementsStartingWithA = function(array) {
-  return 'Write your method here';
-}
+  function startingWithA(word) {
+    return word.charAt(0) === 'a';
+ }
+  return array.filter(startingWithA);
+};
 
 var selectElementsStartingWithVowel = function(array) {
-  return 'Write your method here';
-}
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  function startingWithVowel(word) {
+    var firstLetter = word.charAt(0);
+    return vowels.indexOf(firstLetter) !== -1;
+  }
+  return array.filter(startingWithVowel);
+};
 
 var removeNullElements = function(array) {
-  return 'Write your method here';
-}
+  function removeNull(element) {
+    return element !== null;
+  }
+  return array.filter(removeNull);
+};
 
 var removeNullAndFalseElements = function(array) {
-  return 'Write your method here';
-}
+  function removeNullandFalse(element) {
+    return element !== null && element !== false
+  }
+  return array.filter(removeNullandFalse);
+};
 
 var reverseWordsInArray = function(array) {
-  return 'Write your method here';
-}
+  function reverse(word) {
+    return word.split('').reverse().join('');
+  }
+  return array.map(reverse);
+};
 
 var everyPossiblePair = function(array) {
-  return 'Write your method here';
-}
+  var pairArray = [];
+  var sortArray = array.slice().reverse();
+  for (var pair1 of array) {
+    sortArray.pop();
+    for (var pair2 of sortArray) {
+      pairArray.push([pair1, pair2].sort());
+    }
+  }
+  return pairArray.sort();
+};
 
 var allElementsExceptFirstThree = function(array) {
-  return 'Write your method here';
-}
+  return array.slice(3, 8);
+};
 
 var addElementToBeginning = function(array, element) {
-  return 'Write your method here';
-}
+  array.unshift(element);
+  return array;
+};
 
 var sortByLastLetter = function(array) {
-  return 'Write your method here';
-}
+  function lastLetter(word1, word2) {
+    return word1.slice(-1) >= word2.slice(-1);
+  }
+  return array.sort(lastLetter);
+};
 
 var getFirstHalf = function(string) {
-  return 'Write your method here';
-}
+  return string.slice(0, 3);
+};
 
 var makeNegative = function(number) {
-  return 'Write your method here';
-}
+  return - Math.abs(number);
+};
 
 var numberOfPalindromes = function(array) {
-  return 'Write your method here';
-}
+  function matchedPalindromes(word) {
+    if (word[0] === word.slice(-1)) {
+      return word;
+    }
+  }
+  return array.filter(matchedPalindromes).length;
+};
 
 var shortestWord = function(array) {
-  return 'Write your method here';
-}
+  function findShortest(word1, word2) {
+    return word1.length < word2.length ? word1 : word2;
+  }
+  return array.reduce(findShortest);
+};
 
 var longestWord = function(array) {
-  return 'Write your method here';
-}
+  function findLongest(word1, word2) {
+    return word1.length > word2.length ? word1 : word2;
+  }
+  return array.reduce(findLongest);
+};
 
 var sumNumbers = function(array) {
-  return 'Write your method here';
-}
+  for(var i = 0, sum = 0; i < array.length; sum += array[i++]);
+    return sum;
+};
 
 var repeatElements = function(array) {
-  return 'Write your method here';
-}
+  return array.concat(array);
+};
 
 var stringToNumber = function(string) {
-  return 'Write your method here';
-}
+  return Number(string);
+};
 
 var calculateAverage = function(array) {
-  return 'Write your method here';
-}
+  for(var i = 0, sum = 0; i < array.length; sum += array[i++]);
+    return sum / array.length;
+};
 
 var getElementsUntilGreaterThanFive = function(array) {
-  return 'Write your method here';
+
 }
 
 var convertArrayToObject = function(array) {
-  return 'Write your method here';
-}
+    var obj = {};
+    for(var i = 0; i < array.length; i += 2) {
+      obj[array[i]] = array[i + 1];
+    }
+  return obj;
+};
 
 var getAllLetters = function(array) {
-  return 'Write your method here';
-}
+  var arr =  array.join('').split('').sort();
+  var uniqueArray = arr.filter(function(item, pos) {
+    return arr.indexOf(item) === pos;
+  });
+  return uniqueArray;
+};
 
 var swapKeysAndValues = function(object) {
-  return 'Write your method here';
-}
+  var newObject = {};
+  for(var key in object) {
+    newObject[object[key]] = key;
+  }
+  return newObject;
+};
 
 var sumKeysAndValues = function(object) {
   return 'Write your method here';
 }
 
 var removeCapitals = function(string) {
-  return 'Write your method here';
+  return string.replace(/[A-Z]/g, '');
 }
 
 var roundUp = function(number) {
-  return 'Write your method here';
-}
+  return Math.ceil(number);
+};
 
 var formatDateNicely = function(date) {
-  return 'Write your method here';
-}
+  return ('0' + date.getDate()  + "/" + '0' + (date.getMonth() + 1) + "/" + date.getFullYear());
+};
 
 var getDomainName = function(string) {
-  return 'Write your method here';
-}
+  return string.match(/^.+@(.+)\..+$/)[1];
+};
 
 var titleize = function(string) {
   return 'Write your method here';
@@ -119,8 +171,8 @@ var checkForSpecialCharacters = function(string) {
 }
 
 var squareRoot = function(number) {
-  return 'Write your method here';
-}
+  return Math.sqrt(number);
+};
 
 var factorial = function(number) {
   return 'Write your method here';
@@ -131,9 +183,12 @@ var findAnagrams = function(string) {
 }
 
 var convertToCelsius = function(number) {
-  return 'Write your method here';
-}
+  return Math.round((number - 32) / 1.8);
+};
 
 var letterPosition = function(array) {
-  return 'Write your method here';
-}
+  function letterToNumber(char) {
+    return char.toLowerCase().charCodeAt(0) - 96;
+  }
+  return array.map(letterToNumber);
+};
